@@ -15,21 +15,21 @@ def home_view(request):
     return render(request,'hospital/index.html')
 
 
-#for showing signup/login button for admin(by sumit)
+#for showing signup/login button for admin
 def adminclick_view(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('afterlogin')
     return render(request,'hospital/adminclick.html')
 
 
-#for showing signup/login button for doctor(by sumit)
+#for showing signup/login button for doctor
 def doctorclick_view(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('afterlogin')
     return render(request,'hospital/doctorclick.html')
 
 
-#for showing signup/login button for patient(by sumit)
+#for showing signup/login button for patient
 def patientclick_view(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('afterlogin')
@@ -99,8 +99,7 @@ def patient_signup_view(request):
 
 
 
-#-----------for checking user is doctor , patient or admin(by sumit)
-def is_admin(user):
+#-----------for checking user is doctor , patient or admin
     return user.groups.filter(name='ADMIN').exists()
 def is_doctor(user):
     return user.groups.filter(name='DOCTOR').exists()
